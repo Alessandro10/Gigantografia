@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+		<link href="css/fileinput2.css" media="all" rel="stylesheet" type="text/css" />
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="/resources/demos/style.css">
+		<script src="js/bootstrap-slider.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/css/bootstrap-select.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/js/bootstrap-select.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/js/i18n/defaults-*.min.js"></script>
+		<link href="css/jWindowCrop.css" media="screen" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.jWindowCrop.js"></script>
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.ui.rotatable/1.0.1/jquery.ui.rotatable.css">
+		<script src="//cdn.jsdelivr.net/jquery.ui.rotatable/1.0.1/jquery.ui.rotatable.min.js"></script>
+		<script src="js/jquery.ui.rotatable.js"></script>
+		<script src="js/fileinput2.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="css/gigantografia.css">
+		<script src="js/gigantografia.js" type="text/javascript"></script>
+	</head>
+<body>
+
+<!-- MINIMUM IMAGE DIMENSIONS -->
+<input id="input-dim-1" name="inputdim1[]" type="file" multiple class="file-loading" accept="image/*">
+<script>
+$("#input-dim-1").fileinput({
+uploadUrl: "/file-upload-batch/2",
+maxFileCount: 14,
+maxFileSize: 14190.59,
+allowedFileExtensions: ["jpg", "png", "gif"],
+minImageWidth: 30,
+minImageHeight: 50
+});
+</script>
+
+<div class="row" id="tavolata">
+	<div  id="info" class="col-md-2 col-xs-2">
+		<div class="row">
+			<li class="separate"></li>
+		</div>
+		<div class="row">
+			<div name="testo" class="col-lg-4 col-md-12 col-xs-12" align="center">
+				Formato
+			</div>
+			<select id="altezza" class="selectpicker col-lg-8 col-md-12 col-xs-12">
+				<option formato="40">40X</option>
+				<option formato="45">45X</option>
+				<option formato="50">50X</option>
+				<option formato="60">60X</option>
+				<option formato="70">70X</option>
+				<option formato="76">76X</option>
+			</select>
+		</div>
+	<div class="row">
+		<li class="separate"></li>
+	</div>
+	<div class="row">
+		<div name="testo" class="col-lg-4 col-md-12 col-xs-12" align="center">
+			Carta
+		</div>
+		<select id="tipo_di_carta" class="selectpicker col-lg-8 col-md-12 col-xs-12">
+			<option>Lucida</option>
+			<option>Lux</option>
+			<option>Y</option>
+			<option>Metal</option>
+		</select>
+	</div>
+	<div name="testo" id="formato" class="row" align="center">
+		Formato 
+		<p id="dati">
+			<f id="b">
+				90
+			</f>
+			X
+			<f id="h">
+				90
+			</f>
+		</p>
+		Angolo 
+		<div class="col-md-12">
+			<div class="input-group">
+				<span id="incrementa2" class="input-group-btn">
+					<button type="button" class="btn btn-default" data-value="decrease" data-target="#spinner" data-toggle="spinner">
+						<span class="glyphicon glyphicon-minus"></span>
+					</button>
+				</span>
+				<input id="angolazione"  onkeypress='validate(event)' type="text" data-ride="spinner" id="spinner" class="form-control input-number" value="0" style="text-align:center">
+				<span id="decrementa2" class="input-group-btn">
+					<button type="button" class="btn btn-default" data-value="increase" data-target="#spinner" data-toggle="spinner">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="visibility:gone">
+		---
+	</div>
+	<div class="row">
+		<button id="ordinazione" type="button" class="modale col-md-offset-1 col-md-5 col-xs-12 btn btn-success" data-toggle="modal" data-target="#myModal" disabled>Ordina</button>
+		<button type="button" class="col-md-5 col-xs-12 btn btn-danger">Annulla</button>
+		<div id="invisibletext">
+			<!-- inserisco tutti gli indirizzi per scaricare le immagini e le assocciazioni con le varie anteprime -->
+		</div>
+	</div>
+</div>
+<div class="col-md-1 col-xs-1 tipologia_formato">
+	40cm
+</div>
+<div id="lavoro"  class="col-md-9 col-xs-9">
+	<div id="croppable">
+		<img id="target3" class="crop_me" alt="" src="img/bianco.jpg" name="null" ondrop="drop(event)" ondragover="allowDrop(event)" onmousedown="opacita()" onmouseup="ricompari()"><!--jWindowCrop-master/images/dock.jpg-->
+	</div>
+	<div id="slider-range" class="col-md-11 col-xs-11" data-slider-tooltip="show" title="Scegli dimensione">
+	</div>
+<div id="righello" class="row">
+	<div class="col-md-12 col-xs-12" id="adding">
+		<div class="col-md-1 col-xs-1" style="display:block;padding-left:0px;">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1">|</div>
+		<div class="col-md-1 col-xs-1" style="display:block;padding-right:0px;right:-5px;">|</div>
+		<div class="col-md-1 col-xs-1" style="display:block;padding-left:0px;left:-3px;">0</div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1"></div>
+		<div class="col-md-1 col-xs-1" style="display:block;padding-left:0px;left:12px;">250</div>
+	</div>
+</div>
+<div id="results2" class="col-md-12 col-xs-12">
+	<button id="operazioni0" name="operazioni" type="button" class="col-md-offset-1 col-md-3 col-xs-offset-1 col-xs-5 btn btn-success" disabled>
+		<span class="glyphicon glyphicon-search">
+		Zoom
+	</button>
+	<button id="operazioni1" name="operazioni" type="button" class="col-md-offset-1 col-md-3 col-xs-offset-1 col-xs-5 btn btn-success">
+		<span class="glyphicon glyphicon-refresh"> 
+		Ruota
+	</button>
+</div>
+<div class="container">
+
+<!-- Modale per Ordine -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Riepilogo Ordine</h4>
+			</div>
+			<div class="modal-body">
+				<div id="caricamento">
+					<center>
+						<img id="loading" class="hidden" src="img/loading.gif" height="370px"/>
+					</center>
+					<div id="progress_bar" class="hidden">
+						<div class="bs-example">
+							<div class="progress">
+								<div id="progress_bar2" class="progress-bar" style="width: 0%;">
+									0%
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#tab1" data-toggle="tab">Dati Prodotto</a></li>
+					<li><a href="#tab2" data-toggle="tab">Dati Cliente</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab1">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-md-4" for="last_name">
+									Nome Prodotto
+								</label>
+								<div class="col-md-6">
+								<input type="text" class="form-control" id="tipo_scelta" name="last_name" placeholder="Citta'" disabled value="Gigantografia"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4" for="last_name">Formato</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="formato_scelta" name="last_name" placeholder="Citta'" disabled value="40X90"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4" for="last_name">Carta</label>
+									<div class="col-md-6">
+									<input type="text" class="form-control" id="carta_scelta" name="last_name" placeholder="Citta'" disabled value="Lucida"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4" for="last_name">Quantita</label>
+								<div class="col-md-6">
+									<div class="input-group">
+										<span id="incrementa" class="input-group-btn">
+											<button type="button" class="btn btn-default" data-value="decrease" data-target="#spinner" data-toggle="spinner">
+												<span class="glyphicon glyphicon-minus"></span>
+											</button>
+										</span>
+										<input id="quantita" type="text" data-ride="spinner" id="spinner" class="form-control input-number" value="1">
+										<span id="decrementa" class="input-group-btn">
+											<button type="button" class="btn btn-default" data-value="increase" data-target="#spinner" data-toggle="spinner">
+												<span class="glyphicon glyphicon-plus"></span>
+											</button>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<div class="row">
+										<button type="submit" value="Submit" class="col-md-offset-3 btn btn-custom col-md-6 fine" id="send_btn">Ordina</button>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<div class="row">
+										<button type="submit" value="Submit" class="col-md-offset-3 btn btn-custom col-md-6 annulla" id="send_btn2" data-dismiss="modal">Annulla</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="tab2">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-md-4" for="first_name">
+									Nome
+								</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="nome_cliente" name="first_name" placeholder="Nome"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4" for="last_name">
+									Cognome
+								</label>
+								<div class="col-md-6">
+								<input type="text" class="form-control" id="cognome_cliente" name="last_name" placeholder="Cognome"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4" for="last_name">
+									Indirizzo
+								</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="indirizzo_cliente" name="last_name" placeholder="Indirizzo"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4" for="last_name">
+									Citta'
+								</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="citta_cliente" name="last_name" placeholder="Citta'"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4" for="last_name">
+									Telefono
+								</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="telefono_cliente" name="last_name" placeholder="Telefono"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4" for="comment">
+									Nota
+								</label>
+								<div class="col-md-6">
+									<textarea rows="6" class="form-control" id="nota_cliente" name="comments" placeholder="Nota"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<div class="row">
+										<button type="submit" value="Submit" class="col-md-offset-3 btn btn-custom col-md-6 fine" id="send_btn">Ordina</button>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<div class="row">
+										<button type="submit" value="Submit" class="col-md-offset-3 btn btn-custom col-md-6 annulla" id="send_btn">Annulla</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- End of Modal body -->
+			</div><!-- End of Modal content -->
+		</div><!-- End of Modal dialog -->
+	</div><!-- End of Modal -->
+</div><!-- End of Container -->
+<!-- Fine Modale per Ordine -->
+
+<div id="gridSystemModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">
+						&times;
+					</span>
+				</button>
+				<h4 class="modal-title" id="gridModalLabel">Ordina</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid bd-example-row">
+					<div class="col-md-6">
+						<div class="raw">
+							<div class="col-md-5">
+								Nome:
+							</div>
+							<input type="text" class="col-md-7">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>    
+</body>
+</html>

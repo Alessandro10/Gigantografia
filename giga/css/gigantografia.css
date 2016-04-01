@@ -1,0 +1,311 @@
+
+[check="check"]
+{
+	background-image : url('../img/spunta.png');
+	background-size : 33px;
+	background-repeat : no-repeat;
+}
+
+#lavoro
+{
+	padding-top:50px;
+}
+
+body
+ {
+	font-family:sans-serif;
+	font-size:13px;
+}
+
+#results 
+{
+	font-family:monospace;
+	font-size:20px;
+}
+
+/* over ride defaults */
+.jwc_frame 
+{
+	border:5px solid black;
+} 
+
+.jwc_controls
+ {
+	height:24px;
+} 
+
+.jwc_zoom_in, .jwc_zoom_out 
+{
+	display:block; background-color:transparent;
+	cursor:pointer;
+	width:16px; height:16px;
+	float:right; margin:4px 4px 0px 0px;
+	text-decoration:none; text-align:center;
+	font-size:16px; font-weight:bold; color:#000;
+} 
+
+.jwc_zoom_in
+{
+	background-image:url(images/round_plus_16.png);
+} 
+
+.jwc_zoom_out 
+{
+	background-image:url(images/round_minus_16.png);
+} 
+
+.jwc_zoom_in::after 
+{
+	content:"";
+} 
+.jwc_zoom_out::after 
+{
+	content:"";
+}
+/* over ride defaults */
+
+.modal 
+{
+	position: fixed;
+	right: o;
+	top: 40px;
+}
+
+.modal-header, .btn-custom 
+{
+	background: #1ABC9C;
+	color: #FFF;
+}
+.modal-body 
+{
+	background: #73BFC1;
+}
+.popover   
+{
+	background-color: #e74c3c;
+	color: #ecf0f1;
+	width: 120px;
+}
+.popover.right .arrow:after
+{
+	border-right-color: #e74c3c;
+}
+.input-group[class*="col-"] 
+{
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+
+.tipologia_formato
+{
+	font-size:22px;
+	top:140px;
+	-ms-transform: rotate(-90deg); /* IE 9 */
+	-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+	transform: rotate(-90deg);
+}
+
+div.box
+{
+	overflow-y:scroll; 
+}
+
+
+.thumb 
+{
+	height: 70px;
+	border: 1px solid #000;
+	margin: 10px 5px 0 0;
+}
+
+#formato
+{
+	height: auto;
+}
+
+[name="testo"]
+{
+	color: #ffffff;
+	text-shadow: 2px 2px #000000;
+	letter-spacing: 3px;
+	font-size:19px;
+}
+
+#resizable
+{ 
+	position:relative; 
+	width: 150px;
+	height: 150px; 
+	padding: 0.5em; 
+	margin-top:100px:
+}
+
+#resizable i 
+{
+	position:relative; 
+	text-align: 
+	center; margin: 0;
+}
+
+#foto
+{ 
+	background-color:#ff0000; 
+	height:150px;
+}
+
+#lavoro
+{
+	background-color:rgba(160, 160, 160, 0.55); 
+	height: 75.8vh;
+}
+
+#risorse
+{ 
+	background-color:#00ff00; 
+	height:150px;
+}
+
+#info
+{
+	background-color:rgb(203, 203, 203); 
+	height:100%;
+	height:75.8vh;
+}
+
+#fotocorrente
+{
+	padding:0px; 
+}
+
+#spazio
+{
+	height:10%;
+}
+
+#div1 
+{
+	width:350px;
+	height:70px;
+	padding:10px;
+	border:1px solid #aaaaaa;
+}
+
+html 
+{
+	height: 100%;
+}
+body
+{
+	min-height: 100%;
+}
+html 
+{ 
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+#tavolata
+{
+	height:stretch;
+	bottom:0px;
+}
+
+<!--CSS sliderbar-->
+
+.tooltip1 
+{
+	position: relative;
+	z-index: 1020;
+	<!--display: block;-->
+	padding: 5px;
+	font-size: 11px;
+	visibility: visible;
+	margin-top: -2px;
+	bottom:-140%;
+	margin-left: -1em;
+}
+
+
+
+.tooltip-inner1 
+{
+	background-color:#ffffff;
+	max-width: 200px;
+	padding: 3px 8px;
+	color: #000000;
+	text-align: center;
+	text-decoration: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.ui-slider 
+{
+	background: white repeat-x bottom left;
+	border-bottom: 1px solid #EBEAE5;
+	height: 15px;
+	margin-top: 4px;
+	padding: 0px;
+}
+
+.ui-slider-handle 
+{
+	background: #ED6B51;
+	border-bottom: 1px solid #a8a79f;
+	border-right: 1px solid #a8a79f;
+	height: 20px;
+	width: 10px;
+	margin: 0;
+	padding: 0px;
+	display: inline-block;
+}
+
+.ui-slider-range 
+{
+	height: 10px;
+	border-bottom: 3px solid red;
+	position: relative;
+}
+
+.ui-slider-handle 
+{
+	background: <!--#ED6B51-->#ffffff !important;
+	border-bottom: 1px solid #a8a79f !important;
+	border-right: 1px solid #a8a79f !important;
+	height: 20px !important;
+	width: 47px !important;
+	margin: 0 !important;
+	padding: 0px !important;
+	display: inline-block !important;
+	top: -4px !important;
+}
+
+#ex1Slider .slider-selection 
+{
+	background: #BABABA;
+}
+//-------------------
+
+.btn-file 
+{
+	position: relative;
+	overflow: hidden;
+}
+.btn-file input[type=file] 
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
+}
